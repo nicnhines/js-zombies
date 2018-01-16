@@ -130,7 +130,7 @@ class Player {
    * @name checkPack
    */
 
-  checkPack() {
+  getPack() {
     console.log(this._pack)
   }
 
@@ -263,7 +263,7 @@ class Player {
 
   eat(itemToEat) {
     let indexOfPack = this.getPack().indexOf(itemToEat);
-    if (this.getPack().includes(itemToEat) && itemToEat instanceof Food && indexOfPack !== -1) {
+    if ( itemToEat instanceof Food && indexOfPack !== -1) {
       this.getPack().splice(indexOfPack, 1);
       this.health = this.health + itemToEat.energy;
       if (this.health > this.getMaxHealth()) {
@@ -310,7 +310,7 @@ class Player {
    */
 
   equippedWith() {
-    if (this.equipped !== false) {
+    if (this.equipped === true) {
       console.log(this.name + ' is equipped with ' + this.equipped.name)
       return this.equipped.name;
     } else {
